@@ -9,6 +9,10 @@ and answer service for BigQuery data.
 - `Client Library Documentation`_
 - `Product Documentation`_
 
+.. warning::
+   Data QnA is currently in private Alpha. Access is only available to
+   allowlisted users.
+
 .. |alpha| image:: https://img.shields.io/badge/support-alpha-orange.svg
    :target: https://github.com/googleapis/google-cloud-python/blob/master/README.rst#alpha-support
 .. |pypi| image:: https://img.shields.io/pypi/v/google-cloud-data-qna.svg
