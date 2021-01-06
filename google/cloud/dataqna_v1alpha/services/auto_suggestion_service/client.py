@@ -183,6 +183,22 @@ class AutoSuggestionServiceClient(metaclass=AutoSuggestionServiceClientMeta):
     )
 
     @classmethod
+    def from_service_account_info(cls, info: dict, *args, **kwargs):
+        """Creates an instance of this client using the provided credentials info.
+
+        Args:
+            info (dict): The service account private key info.
+            args: Additional arguments to pass to the constructor.
+            kwargs: Additional arguments to pass to the constructor.
+
+        Returns:
+            AutoSuggestionServiceClient: The constructed client.
+        """
+        credentials = service_account.Credentials.from_service_account_info(info)
+        kwargs["credentials"] = credentials
+        return cls(*args, **kwargs)
+
+    @classmethod
     def from_service_account_file(cls, filename: str, *args, **kwargs):
         """Creates an instance of this client using the provided credentials
         file.
@@ -194,7 +210,7 @@ class AutoSuggestionServiceClient(metaclass=AutoSuggestionServiceClientMeta):
             kwargs: Additional arguments to pass to the constructor.
 
         Returns:
-            {@api.name}: The constructed client.
+            AutoSuggestionServiceClient: The constructed client.
         """
         credentials = service_account.Credentials.from_service_account_file(filename)
         kwargs["credentials"] = credentials
@@ -286,10 +302,10 @@ class AutoSuggestionServiceClient(metaclass=AutoSuggestionServiceClientMeta):
                 credentials identify the application to the service; if none
                 are specified, the client will attempt to ascertain the
                 credentials from the environment.
-            transport (Union[str, ~.AutoSuggestionServiceTransport]): The
+            transport (Union[str, AutoSuggestionServiceTransport]): The
                 transport to use. If set to None, a transport is chosen
                 automatically.
-            client_options (client_options_lib.ClientOptions): Custom options for the
+            client_options (google.api_core.client_options.ClientOptions): Custom options for the
                 client. It won't take effect if a ``transport`` instance is provided.
                 (1) The ``api_endpoint`` property can be used to override the
                 default endpoint provided by the client. GOOGLE_API_USE_MTLS_ENDPOINT
@@ -399,7 +415,7 @@ class AutoSuggestionServiceClient(metaclass=AutoSuggestionServiceClientMeta):
         AutoSuggestion tolerance should be less than 1 second.
 
         Args:
-            request (:class:`~.auto_suggestion_service.SuggestQueriesRequest`):
+            request (google.cloud.dataqna_v1alpha.types.SuggestQueriesRequest):
                 The request object. Request for query suggestions.
 
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
@@ -409,7 +425,7 @@ class AutoSuggestionServiceClient(metaclass=AutoSuggestionServiceClientMeta):
                 sent along with the request as metadata.
 
         Returns:
-            ~.auto_suggestion_service.SuggestQueriesResponse:
+            google.cloud.dataqna_v1alpha.types.SuggestQueriesResponse:
                 Response to SuggestQueries.
         """
         # Create or coerce a protobuf request object.

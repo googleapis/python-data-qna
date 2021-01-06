@@ -4,15 +4,15 @@
       "git": {
         "name": ".",
         "remote": "https://github.com/googleapis/python-data-qna.git",
-        "sha": "d090b4b19c2aa5185712c86ad189243c78420ca8"
+        "sha": "044d47ab0ab3c9ccb1b1f81fb974be6375a0cf52"
       }
     },
     {
       "git": {
         "name": "googleapis",
         "remote": "https://github.com/googleapis/googleapis.git",
-        "sha": "dd372aa22ded7a8ba6f0e03a80e06358a3fa0907",
-        "internalRef": "347055288"
+        "sha": "520682435235d9c503983a360a2090025aa47cd1",
+        "internalRef": "350246057"
       }
     },
     {
@@ -42,6 +42,7 @@
     }
   ],
   "generatedFiles": [
+    ".coveragerc",
     ".flake8",
     ".github/CONTRIBUTING.md",
     ".github/ISSUE_TEMPLATE/bug_report.md",
@@ -94,6 +95,8 @@
     "docs/_static/custom.css",
     "docs/_templates/layout.html",
     "docs/conf.py",
+    "docs/dataqna_v1alpha/auto_suggestion_service.rst",
+    "docs/dataqna_v1alpha/question_service.rst",
     "docs/dataqna_v1alpha/services.rst",
     "docs/dataqna_v1alpha/types.rst",
     "docs/multiprocessing.rst",
