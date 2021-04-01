@@ -3,30 +3,30 @@
     {
       "git": {
         "name": ".",
-        "remote": "https://github.com/googleapis/python-data-qna.git",
-        "sha": "044d47ab0ab3c9ccb1b1f81fb974be6375a0cf52"
+        "remote": "git@github.com:googleapis/python-data-qna",
+        "sha": "f59199169345ae94d58b76c5c67a5ca28c9e533d"
       }
     },
     {
       "git": {
         "name": "googleapis",
         "remote": "https://github.com/googleapis/googleapis.git",
-        "sha": "520682435235d9c503983a360a2090025aa47cd1",
-        "internalRef": "350246057"
+        "sha": "f6b491910e5ebbb7f3bb9b13f53294b6e94b2f48",
+        "internalRef": "366337595"
       }
     },
     {
       "git": {
         "name": "synthtool",
         "remote": "https://github.com/googleapis/synthtool.git",
-        "sha": "f94318521f63085b9ccb43d42af89f153fb39f15"
+        "sha": "6d76df2138f8f841e5a5b9ac427f81def520c15f"
       }
     },
     {
       "git": {
         "name": "synthtool",
         "remote": "https://github.com/googleapis/synthtool.git",
-        "sha": "f94318521f63085b9ccb43d42af89f153fb39f15"
+        "sha": "6d76df2138f8f841e5a5b9ac427f81def520c15f"
       }
     }
   ],
@@ -40,106 +40,5 @@
         "generator": "bazel"
       }
     }
-  ],
-  "generatedFiles": [
-    ".coveragerc",
-    ".flake8",
-    ".github/CONTRIBUTING.md",
-    ".github/ISSUE_TEMPLATE/bug_report.md",
-    ".github/ISSUE_TEMPLATE/feature_request.md",
-    ".github/ISSUE_TEMPLATE/support_request.md",
-    ".github/PULL_REQUEST_TEMPLATE.md",
-    ".github/release-please.yml",
-    ".github/snippet-bot.yml",
-    ".gitignore",
-    ".kokoro/build.sh",
-    ".kokoro/continuous/common.cfg",
-    ".kokoro/continuous/continuous.cfg",
-    ".kokoro/docker/docs/Dockerfile",
-    ".kokoro/docker/docs/fetch_gpg_keys.sh",
-    ".kokoro/docs/common.cfg",
-    ".kokoro/docs/docs-presubmit.cfg",
-    ".kokoro/docs/docs.cfg",
-    ".kokoro/populate-secrets.sh",
-    ".kokoro/presubmit/common.cfg",
-    ".kokoro/presubmit/presubmit.cfg",
-    ".kokoro/publish-docs.sh",
-    ".kokoro/release.sh",
-    ".kokoro/release/common.cfg",
-    ".kokoro/release/release.cfg",
-    ".kokoro/samples/lint/common.cfg",
-    ".kokoro/samples/lint/continuous.cfg",
-    ".kokoro/samples/lint/periodic.cfg",
-    ".kokoro/samples/lint/presubmit.cfg",
-    ".kokoro/samples/python3.6/common.cfg",
-    ".kokoro/samples/python3.6/continuous.cfg",
-    ".kokoro/samples/python3.6/periodic.cfg",
-    ".kokoro/samples/python3.6/presubmit.cfg",
-    ".kokoro/samples/python3.7/common.cfg",
-    ".kokoro/samples/python3.7/continuous.cfg",
-    ".kokoro/samples/python3.7/periodic.cfg",
-    ".kokoro/samples/python3.7/presubmit.cfg",
-    ".kokoro/samples/python3.8/common.cfg",
-    ".kokoro/samples/python3.8/continuous.cfg",
-    ".kokoro/samples/python3.8/periodic.cfg",
-    ".kokoro/samples/python3.8/presubmit.cfg",
-    ".kokoro/test-samples.sh",
-    ".kokoro/trampoline.sh",
-    ".kokoro/trampoline_v2.sh",
-    ".pre-commit-config.yaml",
-    ".trampolinerc",
-    "CODE_OF_CONDUCT.md",
-    "CONTRIBUTING.rst",
-    "LICENSE",
-    "MANIFEST.in",
-    "docs/_static/custom.css",
-    "docs/_templates/layout.html",
-    "docs/conf.py",
-    "docs/dataqna_v1alpha/auto_suggestion_service.rst",
-    "docs/dataqna_v1alpha/question_service.rst",
-    "docs/dataqna_v1alpha/services.rst",
-    "docs/dataqna_v1alpha/types.rst",
-    "docs/multiprocessing.rst",
-    "google/cloud/dataqna/__init__.py",
-    "google/cloud/dataqna/py.typed",
-    "google/cloud/dataqna_v1alpha/__init__.py",
-    "google/cloud/dataqna_v1alpha/py.typed",
-    "google/cloud/dataqna_v1alpha/services/__init__.py",
-    "google/cloud/dataqna_v1alpha/services/auto_suggestion_service/__init__.py",
-    "google/cloud/dataqna_v1alpha/services/auto_suggestion_service/async_client.py",
-    "google/cloud/dataqna_v1alpha/services/auto_suggestion_service/client.py",
-    "google/cloud/dataqna_v1alpha/services/auto_suggestion_service/transports/__init__.py",
-    "google/cloud/dataqna_v1alpha/services/auto_suggestion_service/transports/base.py",
-    "google/cloud/dataqna_v1alpha/services/auto_suggestion_service/transports/grpc.py",
-    "google/cloud/dataqna_v1alpha/services/auto_suggestion_service/transports/grpc_asyncio.py",
-    "google/cloud/dataqna_v1alpha/services/question_service/__init__.py",
-    "google/cloud/dataqna_v1alpha/services/question_service/async_client.py",
-    "google/cloud/dataqna_v1alpha/services/question_service/client.py",
-    "google/cloud/dataqna_v1alpha/services/question_service/transports/__init__.py",
-    "google/cloud/dataqna_v1alpha/services/question_service/transports/base.py",
-    "google/cloud/dataqna_v1alpha/services/question_service/transports/grpc.py",
-    "google/cloud/dataqna_v1alpha/services/question_service/transports/grpc_asyncio.py",
-    "google/cloud/dataqna_v1alpha/types/__init__.py",
-    "google/cloud/dataqna_v1alpha/types/annotated_string.py",
-    "google/cloud/dataqna_v1alpha/types/auto_suggestion_service.py",
-    "google/cloud/dataqna_v1alpha/types/question.py",
-    "google/cloud/dataqna_v1alpha/types/question_service.py",
-    "google/cloud/dataqna_v1alpha/types/user_feedback.py",
-    "mypy.ini",
-    "noxfile.py",
-    "renovate.json",
-    "scripts/decrypt-secrets.sh",
-    "scripts/fixup_dataqna_v1alpha_keywords.py",
-    "scripts/readme-gen/readme_gen.py",
-    "scripts/readme-gen/templates/README.tmpl.rst",
-    "scripts/readme-gen/templates/auth.tmpl.rst",
-    "scripts/readme-gen/templates/auth_api_key.tmpl.rst",
-    "scripts/readme-gen/templates/install_deps.tmpl.rst",
-    "scripts/readme-gen/templates/install_portaudio.tmpl.rst",
-    "setup.cfg",
-    "testing/.gitignore",
-    "tests/unit/gapic/dataqna_v1alpha/__init__.py",
-    "tests/unit/gapic/dataqna_v1alpha/test_auto_suggestion_service.py",
-    "tests/unit/gapic/dataqna_v1alpha/test_question_service.py"
   ]
 }
