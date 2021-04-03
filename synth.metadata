@@ -4,29 +4,29 @@
       "git": {
         "name": ".",
         "remote": "git@github.com:googleapis/python-data-qna",
-        "sha": "f59199169345ae94d58b76c5c67a5ca28c9e533d"
+        "sha": "0b4eda0390d518941c736a355f8eae3acd68f031"
       }
     },
     {
       "git": {
         "name": "googleapis",
         "remote": "https://github.com/googleapis/googleapis.git",
-        "sha": "f6b491910e5ebbb7f3bb9b13f53294b6e94b2f48",
-        "internalRef": "366337595"
+        "sha": "8ff7d794576311d3d68d4df2ac6da93bbfcd7476",
+        "internalRef": "366472163"
       }
     },
     {
       "git": {
         "name": "synthtool",
         "remote": "https://github.com/googleapis/synthtool.git",
-        "sha": "6d76df2138f8f841e5a5b9ac427f81def520c15f"
+        "sha": "ff39353f34a36e7643b86e97724e4027ab466dc6"
       }
     },
     {
       "git": {
         "name": "synthtool",
         "remote": "https://github.com/googleapis/synthtool.git",
-        "sha": "6d76df2138f8f841e5a5b9ac427f81def520c15f"
+        "sha": "ff39353f34a36e7643b86e97724e4027ab466dc6"
       }
     }
   ],
