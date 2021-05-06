@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+
 # Copyright 2020 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,7 +17,6 @@
 
 from .services.auto_suggestion_service import AutoSuggestionServiceClient
 from .services.question_service import QuestionServiceClient
-
 from .types.annotated_string import AnnotatedString
 from .types.auto_suggestion_service import SuggestQueriesRequest
 from .types.auto_suggestion_service import SuggestQueriesResponse
@@ -39,6 +39,7 @@ from .types.question_service import GetQuestionRequest
 from .types.question_service import GetUserFeedbackRequest
 from .types.question_service import UpdateUserFeedbackRequest
 from .types.user_feedback import UserFeedback
+
 
 __all__ = (
     "AnnotatedString",
