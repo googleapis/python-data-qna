@@ -94,15 +94,19 @@ def test__get_default_mtls_endpoint():
     )
 
 
-def test_question_service_client_from_service_account_info():
+@pytest.mark.parametrize(
+    "client_class", [QuestionServiceClient, QuestionServiceAsyncClient,]
+)
+def test_question_service_client_from_service_account_info(client_class):
     creds = credentials.AnonymousCredentials()
     with mock.patch.object(
         service_account.Credentials, "from_service_account_info"
     ) as factory:
         factory.return_value = creds
         info = {"valid": True}
-        client = QuestionServiceClient.from_service_account_info(info)
+        client = client_class.from_service_account_info(info)
         assert client.transport._credentials == creds
+        assert isinstance(client, client_class)
 
         assert client.transport._host == "dataqna.googleapis.com:443"
 
@@ -118,9 +122,11 @@ def test_question_service_client_from_service_account_file(client_class):
         factory.return_value = creds
         client = client_class.from_service_account_file("dummy/file/path.json")
         assert client.transport._credentials == creds
+        assert isinstance(client, client_class)
 
         client = client_class.from_service_account_json("dummy/file/path.json")
         assert client.transport._credentials == creds
+        assert isinstance(client, client_class)
 
         assert client.transport._host == "dataqna.googleapis.com:443"
 
@@ -505,6 +511,22 @@ def test_get_question_from_dict():
     test_get_question(request_type=dict)
 
 
+def test_get_question_empty_call():
+    # This test is a coverage failsafe to make sure that totally empty calls,
+    # i.e. request == None and no flattened fields passed, work.
+    client = QuestionServiceClient(
+        credentials=credentials.AnonymousCredentials(), transport="grpc",
+    )
+
+    # Mock the actual call within the gRPC stub, and fake the request.
+    with mock.patch.object(type(client.transport.get_question), "__call__") as call:
+        client.get_question()
+        call.assert_called()
+        _, args, _ = call.mock_calls[0]
+
+        assert args[0] == question_service.GetQuestionRequest()
+
+
 @pytest.mark.asyncio
 async def test_get_question_async(
     transport: str = "grpc_asyncio", request_type=question_service.GetQuestionRequest
@@ -718,6 +740,22 @@ def test_create_question(
 
 def test_create_question_from_dict():
     test_create_question(request_type=dict)
+
+
+def test_create_question_empty_call():
+    # This test is a coverage failsafe to make sure that totally empty calls,
+    # i.e. request == None and no flattened fields passed, work.
+    client = QuestionServiceClient(
+        credentials=credentials.AnonymousCredentials(), transport="grpc",
+    )
+
+    # Mock the actual call within the gRPC stub, and fake the request.
+    with mock.patch.object(type(client.transport.create_question), "__call__") as call:
+        client.create_question()
+        call.assert_called()
+        _, args, _ = call.mock_calls[0]
+
+        assert args[0] == question_service.CreateQuestionRequest()
 
 
 @pytest.mark.asyncio
@@ -951,6 +989,22 @@ def test_execute_question_from_dict():
     test_execute_question(request_type=dict)
 
 
+def test_execute_question_empty_call():
+    # This test is a coverage failsafe to make sure that totally empty calls,
+    # i.e. request == None and no flattened fields passed, work.
+    client = QuestionServiceClient(
+        credentials=credentials.AnonymousCredentials(), transport="grpc",
+    )
+
+    # Mock the actual call within the gRPC stub, and fake the request.
+    with mock.patch.object(type(client.transport.execute_question), "__call__") as call:
+        client.execute_question()
+        call.assert_called()
+        _, args, _ = call.mock_calls[0]
+
+        assert args[0] == question_service.ExecuteQuestionRequest()
+
+
 @pytest.mark.asyncio
 async def test_execute_question_async(
     transport: str = "grpc_asyncio",
@@ -1175,6 +1229,24 @@ def test_get_user_feedback_from_dict():
     test_get_user_feedback(request_type=dict)
 
 
+def test_get_user_feedback_empty_call():
+    # This test is a coverage failsafe to make sure that totally empty calls,
+    # i.e. request == None and no flattened fields passed, work.
+    client = QuestionServiceClient(
+        credentials=credentials.AnonymousCredentials(), transport="grpc",
+    )
+
+    # Mock the actual call within the gRPC stub, and fake the request.
+    with mock.patch.object(
+        type(client.transport.get_user_feedback), "__call__"
+    ) as call:
+        client.get_user_feedback()
+        call.assert_called()
+        _, args, _ = call.mock_calls[0]
+
+        assert args[0] == question_service.GetUserFeedbackRequest()
+
+
 @pytest.mark.asyncio
 async def test_get_user_feedback_async(
     transport: str = "grpc_asyncio",
@@ -1393,6 +1465,24 @@ def test_update_user_feedback(
 
 def test_update_user_feedback_from_dict():
     test_update_user_feedback(request_type=dict)
+
+
+def test_update_user_feedback_empty_call():
+    # This test is a coverage failsafe to make sure that totally empty calls,
+    # i.e. request == None and no flattened fields passed, work.
+    client = QuestionServiceClient(
+        credentials=credentials.AnonymousCredentials(), transport="grpc",
+    )
+
+    # Mock the actual call within the gRPC stub, and fake the request.
+    with mock.patch.object(
+        type(client.transport.update_user_feedback), "__call__"
+    ) as call:
+        client.update_user_feedback()
+        call.assert_called()
+        _, args, _ = call.mock_calls[0]
+
+        assert args[0] == question_service.UpdateUserFeedbackRequest()
 
 
 @pytest.mark.asyncio
