@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-
 # Copyright 2020 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,7 +13,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-
 from collections import OrderedDict
 from distutils import util
 import os
@@ -23,10 +21,10 @@ from typing import Callable, Dict, Optional, Sequence, Tuple, Type, Union
 import pkg_resources
 
 from google.api_core import client_options as client_options_lib  # type: ignore
-from google.api_core import exceptions  # type: ignore
+from google.api_core import exceptions as core_exceptions  # type: ignore
 from google.api_core import gapic_v1  # type: ignore
 from google.api_core import retry as retries  # type: ignore
-from google.auth import credentials  # type: ignore
+from google.auth import credentials as ga_credentials  # type: ignore
 from google.auth.transport import mtls  # type: ignore
 from google.auth.transport.grpc import SslCredentials  # type: ignore
 from google.auth.exceptions import MutualTLSChannelError  # type: ignore
@@ -37,10 +35,9 @@ from google.cloud.dataqna_v1alpha.types import question as gcd_question
 from google.cloud.dataqna_v1alpha.types import question_service
 from google.cloud.dataqna_v1alpha.types import user_feedback
 from google.cloud.dataqna_v1alpha.types import user_feedback as gcd_user_feedback
-from google.protobuf import any_pb2 as gp_any  # type: ignore
-from google.protobuf import field_mask_pb2 as field_mask  # type: ignore
-from google.protobuf import timestamp_pb2 as timestamp  # type: ignore
-
+from google.protobuf import any_pb2  # type: ignore
+from google.protobuf import field_mask_pb2  # type: ignore
+from google.protobuf import timestamp_pb2  # type: ignore
 from .transports.base import QuestionServiceTransport, DEFAULT_CLIENT_INFO
 from .transports.grpc import QuestionServiceGrpcTransport
 from .transports.grpc_asyncio import QuestionServiceGrpcAsyncIOTransport
@@ -134,6 +131,22 @@ class QuestionServiceClient(metaclass=QuestionServiceClientMeta):
     )
 
     @classmethod
+    def from_service_account_info(cls, info: dict, *args, **kwargs):
+        """Creates an instance of this client using the provided credentials info.
+
+        Args:
+            info (dict): The service account private key info.
+            args: Additional arguments to pass to the constructor.
+            kwargs: Additional arguments to pass to the constructor.
+
+        Returns:
+            QuestionServiceClient: The constructed client.
+        """
+        credentials = service_account.Credentials.from_service_account_info(info)
+        kwargs["credentials"] = credentials
+        return cls(*args, **kwargs)
+
+    @classmethod
     def from_service_account_file(cls, filename: str, *args, **kwargs):
         """Creates an instance of this client using the provided credentials
         file.
@@ -145,7 +158,7 @@ class QuestionServiceClient(metaclass=QuestionServiceClientMeta):
             kwargs: Additional arguments to pass to the constructor.
 
         Returns:
-            {@api.name}: The constructed client.
+            QuestionServiceClient: The constructed client.
         """
         credentials = service_account.Credentials.from_service_account_file(filename)
         kwargs["credentials"] = credentials
@@ -256,7 +269,7 @@ class QuestionServiceClient(metaclass=QuestionServiceClientMeta):
     def __init__(
         self,
         *,
-        credentials: Optional[credentials.Credentials] = None,
+        credentials: Optional[ga_credentials.Credentials] = None,
         transport: Union[str, QuestionServiceTransport, None] = None,
         client_options: Optional[client_options_lib.ClientOptions] = None,
         client_info: gapic_v1.client_info.ClientInfo = DEFAULT_CLIENT_INFO,
@@ -269,10 +282,10 @@ class QuestionServiceClient(metaclass=QuestionServiceClientMeta):
                 credentials identify the application to the service; if none
                 are specified, the client will attempt to ascertain the
                 credentials from the environment.
-            transport (Union[str, ~.QuestionServiceTransport]): The
+            transport (Union[str, QuestionServiceTransport]): The
                 transport to use. If set to None, a transport is chosen
                 automatically.
-            client_options (client_options_lib.ClientOptions): Custom options for the
+            client_options (google.api_core.client_options.ClientOptions): Custom options for the
                 client. It won't take effect if a ``transport`` instance is provided.
                 (1) The ``api_endpoint`` property can be used to override the
                 default endpoint provided by the client. GOOGLE_API_USE_MTLS_ENDPOINT
@@ -308,21 +321,17 @@ class QuestionServiceClient(metaclass=QuestionServiceClientMeta):
             util.strtobool(os.getenv("GOOGLE_API_USE_CLIENT_CERTIFICATE", "false"))
         )
 
-        ssl_credentials = None
+        client_cert_source_func = None
         is_mtls = False
         if use_client_cert:
             if client_options.client_cert_source:
-                import grpc  # type: ignore
-
-                cert, key = client_options.client_cert_source()
-                ssl_credentials = grpc.ssl_channel_credentials(
-                    certificate_chain=cert, private_key=key
-                )
                 is_mtls = True
+                client_cert_source_func = client_options.client_cert_source
             else:
-                creds = SslCredentials()
-                is_mtls = creds.is_mtls
-                ssl_credentials = creds.ssl_credentials if is_mtls else None
+                is_mtls = mtls.has_default_client_cert_source()
+                client_cert_source_func = (
+                    mtls.default_client_cert_source() if is_mtls else None
+                )
 
         # Figure out which api endpoint to use.
         if client_options.api_endpoint is not None:
@@ -365,7 +374,7 @@ class QuestionServiceClient(metaclass=QuestionServiceClientMeta):
                 credentials_file=client_options.credentials_file,
                 host=api_endpoint,
                 scopes=client_options.scopes,
-                ssl_channel_credentials=ssl_credentials,
+                client_cert_source_for_mtls=client_cert_source_func,
                 quota_project_id=client_options.quota_project_id,
                 client_info=client_info,
             )
@@ -382,16 +391,16 @@ class QuestionServiceClient(metaclass=QuestionServiceClientMeta):
         r"""Gets a previously created question.
 
         Args:
-            request (:class:`~.question_service.GetQuestionRequest`):
+            request (google.cloud.dataqna_v1alpha.types.GetQuestionRequest):
                 The request object. A request to get a previously
                 created question.
-            name (:class:`str`):
+            name (str):
                 Required. The unique identifier for the question.
                 Example: ``projects/foo/locations/bar/questions/1234``
+
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -399,7 +408,7 @@ class QuestionServiceClient(metaclass=QuestionServiceClientMeta):
                 sent along with the request as metadata.
 
         Returns:
-            ~.question.Question:
+            google.cloud.dataqna_v1alpha.types.Question:
                 The question resource represents a
                 natural language query, its settings,
                 understanding generated by the system,
@@ -423,10 +432,8 @@ class QuestionServiceClient(metaclass=QuestionServiceClientMeta):
         # there are no flattened fields.
         if not isinstance(request, question_service.GetQuestionRequest):
             request = question_service.GetQuestionRequest(request)
-
             # If we have keyword arguments corresponding to fields on the
             # request, apply these.
-
             if name is not None:
                 request.name = name
 
@@ -459,22 +466,22 @@ class QuestionServiceClient(metaclass=QuestionServiceClientMeta):
         r"""Creates a question.
 
         Args:
-            request (:class:`~.question_service.CreateQuestionRequest`):
+            request (google.cloud.dataqna_v1alpha.types.CreateQuestionRequest):
                 The request object. Request to create a question
                 resource.
-            parent (:class:`str`):
+            parent (str):
                 Required. The name of the project this data source
                 reference belongs to. Example:
                 ``projects/foo/locations/bar``
+
                 This corresponds to the ``parent`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-            question (:class:`~.gcd_question.Question`):
+            question (google.cloud.dataqna_v1alpha.types.Question):
                 Required. The question to create.
                 This corresponds to the ``question`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -482,7 +489,7 @@ class QuestionServiceClient(metaclass=QuestionServiceClientMeta):
                 sent along with the request as metadata.
 
         Returns:
-            ~.gcd_question.Question:
+            google.cloud.dataqna_v1alpha.types.Question:
                 The question resource represents a
                 natural language query, its settings,
                 understanding generated by the system,
@@ -506,10 +513,8 @@ class QuestionServiceClient(metaclass=QuestionServiceClientMeta):
         # there are no flattened fields.
         if not isinstance(request, question_service.CreateQuestionRequest):
             request = question_service.CreateQuestionRequest(request)
-
             # If we have keyword arguments corresponding to fields on the
             # request, apply these.
-
             if parent is not None:
                 request.parent = parent
             if question is not None:
@@ -544,22 +549,23 @@ class QuestionServiceClient(metaclass=QuestionServiceClientMeta):
         r"""Executes an interpretation.
 
         Args:
-            request (:class:`~.question_service.ExecuteQuestionRequest`):
+            request (google.cloud.dataqna_v1alpha.types.ExecuteQuestionRequest):
                 The request object. Request to execute an
                 interpretation.
-            name (:class:`str`):
+            name (str):
                 Required. The unique identifier for the question.
                 Example: ``projects/foo/locations/bar/questions/1234``
+
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-            interpretation_index (:class:`int`):
+            interpretation_index (int):
                 Required. Index of the interpretation
                 to execute.
+
                 This corresponds to the ``interpretation_index`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -567,7 +573,7 @@ class QuestionServiceClient(metaclass=QuestionServiceClientMeta):
                 sent along with the request as metadata.
 
         Returns:
-            ~.question.Question:
+            google.cloud.dataqna_v1alpha.types.Question:
                 The question resource represents a
                 natural language query, its settings,
                 understanding generated by the system,
@@ -591,10 +597,8 @@ class QuestionServiceClient(metaclass=QuestionServiceClientMeta):
         # there are no flattened fields.
         if not isinstance(request, question_service.ExecuteQuestionRequest):
             request = question_service.ExecuteQuestionRequest(request)
-
             # If we have keyword arguments corresponding to fields on the
             # request, apply these.
-
             if name is not None:
                 request.name = name
             if interpretation_index is not None:
@@ -628,17 +632,17 @@ class QuestionServiceClient(metaclass=QuestionServiceClientMeta):
         r"""Gets previously created user feedback.
 
         Args:
-            request (:class:`~.question_service.GetUserFeedbackRequest`):
+            request (google.cloud.dataqna_v1alpha.types.GetUserFeedbackRequest):
                 The request object. Request to get user feedback.
-            name (:class:`str`):
+            name (str):
                 Required. The unique identifier for the user feedback.
                 User feedback is a singleton resource on a Question.
                 Example:
                 ``projects/foo/locations/bar/questions/1234/userFeedback``
+
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -646,7 +650,7 @@ class QuestionServiceClient(metaclass=QuestionServiceClientMeta):
                 sent along with the request as metadata.
 
         Returns:
-            ~.user_feedback.UserFeedback:
+            google.cloud.dataqna_v1alpha.types.UserFeedback:
                 Feedback provided by a user.
         """
         # Create or coerce a protobuf request object.
@@ -665,10 +669,8 @@ class QuestionServiceClient(metaclass=QuestionServiceClientMeta):
         # there are no flattened fields.
         if not isinstance(request, question_service.GetUserFeedbackRequest):
             request = question_service.GetUserFeedbackRequest(request)
-
             # If we have keyword arguments corresponding to fields on the
             # request, apply these.
-
             if name is not None:
                 request.name = name
 
@@ -693,7 +695,7 @@ class QuestionServiceClient(metaclass=QuestionServiceClientMeta):
         request: question_service.UpdateUserFeedbackRequest = None,
         *,
         user_feedback: gcd_user_feedback.UserFeedback = None,
-        update_mask: field_mask.FieldMask = None,
+        update_mask: field_mask_pb2.FieldMask = None,
         retry: retries.Retry = gapic_v1.method.DEFAULT,
         timeout: float = None,
         metadata: Sequence[Tuple[str, str]] = (),
@@ -702,24 +704,24 @@ class QuestionServiceClient(metaclass=QuestionServiceClientMeta):
         there was none before (upsert).
 
         Args:
-            request (:class:`~.question_service.UpdateUserFeedbackRequest`):
+            request (google.cloud.dataqna_v1alpha.types.UpdateUserFeedbackRequest):
                 The request object. Request to updates user feedback.
-            user_feedback (:class:`~.gcd_user_feedback.UserFeedback`):
+            user_feedback (google.cloud.dataqna_v1alpha.types.UserFeedback):
                 Required. The user feedback to
                 update. This can be called even if there
                 is no user feedback so far. The
                 feedback's name field is used to
                 identify the user feedback (and the
                 corresponding question) to update.
+
                 This corresponds to the ``user_feedback`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-            update_mask (:class:`~.field_mask.FieldMask`):
+            update_mask (google.protobuf.field_mask_pb2.FieldMask):
                 The list of fields to be updated.
                 This corresponds to the ``update_mask`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -727,7 +729,7 @@ class QuestionServiceClient(metaclass=QuestionServiceClientMeta):
                 sent along with the request as metadata.
 
         Returns:
-            ~.gcd_user_feedback.UserFeedback:
+            google.cloud.dataqna_v1alpha.types.UserFeedback:
                 Feedback provided by a user.
         """
         # Create or coerce a protobuf request object.
@@ -746,10 +748,8 @@ class QuestionServiceClient(metaclass=QuestionServiceClientMeta):
         # there are no flattened fields.
         if not isinstance(request, question_service.UpdateUserFeedbackRequest):
             request = question_service.UpdateUserFeedbackRequest(request)
-
             # If we have keyword arguments corresponding to fields on the
             # request, apply these.
-
             if user_feedback is not None:
                 request.user_feedback = user_feedback
             if update_mask is not None:
