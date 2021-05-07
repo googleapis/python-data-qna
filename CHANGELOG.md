@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.1.2](https://www.github.com/googleapis/python-data-qna/compare/v0.1.1...v0.1.2) (2021-05-07)
+
+
+### Bug Fixes
+
+* remove gRPC send/recv limits ([#15](https://www.github.com/googleapis/python-data-qna/issues/15)) ([044d47a](https://www.github.com/googleapis/python-data-qna/commit/044d47ab0ab3c9ccb1b1f81fb974be6375a0cf52))
+
 ### [0.1.1](https://www.github.com/googleapis/python-data-qna/compare/v0.1.0...v0.1.1) (2020-12-04)
 
 
