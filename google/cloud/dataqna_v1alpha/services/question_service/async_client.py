@@ -200,7 +200,8 @@ class QuestionServiceAsyncClient:
 
         Args:
             request (:class:`google.cloud.dataqna_v1alpha.types.GetQuestionRequest`):
-                The request object. A request to get a previously
+                The request object.
+                A request to get a previously
                 created question.
             name (:class:`str`):
                 Required. The unique identifier for the question.
@@ -275,7 +276,8 @@ class QuestionServiceAsyncClient:
 
         Args:
             request (:class:`google.cloud.dataqna_v1alpha.types.CreateQuestionRequest`):
-                The request object. Request to create a question
+                The request object.
+                Request to create a question
                 resource.
             parent (:class:`str`):
                 Required. The name of the project this data source
@@ -358,7 +360,8 @@ class QuestionServiceAsyncClient:
 
         Args:
             request (:class:`google.cloud.dataqna_v1alpha.types.ExecuteQuestionRequest`):
-                The request object. Request to execute an
+                The request object.
+                Request to execute an
                 interpretation.
             name (:class:`str`):
                 Required. The unique identifier for the question.
@@ -441,7 +444,8 @@ class QuestionServiceAsyncClient:
 
         Args:
             request (:class:`google.cloud.dataqna_v1alpha.types.GetUserFeedbackRequest`):
-                The request object. Request to get user feedback.
+                The request object.
+                Request to get user feedback.
             name (:class:`str`):
                 Required. The unique identifier for the user feedback.
                 User feedback is a singleton resource on a Question.
@@ -513,7 +517,8 @@ class QuestionServiceAsyncClient:
 
         Args:
             request (:class:`google.cloud.dataqna_v1alpha.types.UpdateUserFeedbackRequest`):
-                The request object. Request to updates user feedback.
+                The request object.
+                Request to updates user feedback.
             user_feedback (:class:`google.cloud.dataqna_v1alpha.types.UserFeedback`):
                 Required. The user feedback to
                 update. This can be called even if there
