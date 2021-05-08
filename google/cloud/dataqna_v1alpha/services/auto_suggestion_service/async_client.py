@@ -244,8 +244,7 @@ class AutoSuggestionServiceAsyncClient:
 
         Args:
             request (:class:`google.cloud.dataqna_v1alpha.types.SuggestQueriesRequest`):
-                The request object.
-                Request for query suggestions.
+                The request object. Request for query suggestions.
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.

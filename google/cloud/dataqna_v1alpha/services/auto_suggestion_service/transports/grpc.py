@@ -298,9 +298,7 @@ class AutoSuggestionServiceGrpcTransport(AutoSuggestionServiceTransport):
         [auto_suggestion_service.SuggestQueriesRequest],
         auto_suggestion_service.SuggestQueriesResponse,
     ]:
-        r"""Return a callable for the
-        suggest queries
-          method over gRPC.
+        r"""Return a callable for the suggest queries method over gRPC.
 
         Gets a list of suggestions based on a prefix string.
         AutoSuggestion tolerance should be less than 1 second.
