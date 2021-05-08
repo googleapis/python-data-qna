@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+
 # Copyright 2020 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,6 +14,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+
 import proto  # type: ignore
 
 
@@ -23,6 +25,7 @@ __protobuf__ = proto.module(
 
 class UserFeedback(proto.Message):
     r"""Feedback provided by a user.
+
     Attributes:
         name (str):
             Required. The unique identifier for the user feedback. User
@@ -40,8 +43,10 @@ class UserFeedback(proto.Message):
         POSITIVE = 1
         NEGATIVE = 2
 
-    name = proto.Field(proto.STRING, number=1,)
-    free_form_feedback = proto.Field(proto.STRING, number=2,)
+    name = proto.Field(proto.STRING, number=1)
+
+    free_form_feedback = proto.Field(proto.STRING, number=2)
+
     rating = proto.Field(proto.ENUM, number=3, enum=UserFeedbackRating,)
 
 

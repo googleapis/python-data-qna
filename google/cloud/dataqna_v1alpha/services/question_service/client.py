@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+
 # Copyright 2020 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,6 +14,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+
 from collections import OrderedDict
 from distutils import util
 import os
@@ -38,6 +40,7 @@ from google.cloud.dataqna_v1alpha.types import user_feedback as gcd_user_feedbac
 from google.protobuf import any_pb2 as gp_any  # type: ignore
 from google.protobuf import field_mask_pb2 as field_mask  # type: ignore
 from google.protobuf import timestamp_pb2 as timestamp  # type: ignore
+
 from .transports.base import QuestionServiceTransport, DEFAULT_CLIENT_INFO
 from .transports.grpc import QuestionServiceGrpcTransport
 from .transports.grpc_asyncio import QuestionServiceGrpcAsyncIOTransport
@@ -392,8 +395,7 @@ class QuestionServiceClient(metaclass=QuestionServiceClientMeta):
 
         Args:
             request (google.cloud.dataqna_v1alpha.types.GetQuestionRequest):
-                The request object.
-                A request to get a previously
+                The request object. A request to get a previously
                 created question.
             name (str):
                 Required. The unique identifier for the question.
@@ -402,6 +404,7 @@ class QuestionServiceClient(metaclass=QuestionServiceClientMeta):
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
+
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -433,8 +436,10 @@ class QuestionServiceClient(metaclass=QuestionServiceClientMeta):
         # there are no flattened fields.
         if not isinstance(request, question_service.GetQuestionRequest):
             request = question_service.GetQuestionRequest(request)
+
             # If we have keyword arguments corresponding to fields on the
             # request, apply these.
+
             if name is not None:
                 request.name = name
 
@@ -468,8 +473,7 @@ class QuestionServiceClient(metaclass=QuestionServiceClientMeta):
 
         Args:
             request (google.cloud.dataqna_v1alpha.types.CreateQuestionRequest):
-                The request object.
-                Request to create a question
+                The request object. Request to create a question
                 resource.
             parent (str):
                 Required. The name of the project this data source
@@ -484,6 +488,7 @@ class QuestionServiceClient(metaclass=QuestionServiceClientMeta):
                 This corresponds to the ``question`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
+
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -515,8 +520,10 @@ class QuestionServiceClient(metaclass=QuestionServiceClientMeta):
         # there are no flattened fields.
         if not isinstance(request, question_service.CreateQuestionRequest):
             request = question_service.CreateQuestionRequest(request)
+
             # If we have keyword arguments corresponding to fields on the
             # request, apply these.
+
             if parent is not None:
                 request.parent = parent
             if question is not None:
@@ -552,8 +559,7 @@ class QuestionServiceClient(metaclass=QuestionServiceClientMeta):
 
         Args:
             request (google.cloud.dataqna_v1alpha.types.ExecuteQuestionRequest):
-                The request object.
-                Request to execute an
+                The request object. Request to execute an
                 interpretation.
             name (str):
                 Required. The unique identifier for the question.
@@ -569,6 +575,7 @@ class QuestionServiceClient(metaclass=QuestionServiceClientMeta):
                 This corresponds to the ``interpretation_index`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
+
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -600,8 +607,10 @@ class QuestionServiceClient(metaclass=QuestionServiceClientMeta):
         # there are no flattened fields.
         if not isinstance(request, question_service.ExecuteQuestionRequest):
             request = question_service.ExecuteQuestionRequest(request)
+
             # If we have keyword arguments corresponding to fields on the
             # request, apply these.
+
             if name is not None:
                 request.name = name
             if interpretation_index is not None:
@@ -636,8 +645,7 @@ class QuestionServiceClient(metaclass=QuestionServiceClientMeta):
 
         Args:
             request (google.cloud.dataqna_v1alpha.types.GetUserFeedbackRequest):
-                The request object.
-                Request to get user feedback.
+                The request object. Request to get user feedback.
             name (str):
                 Required. The unique identifier for the user feedback.
                 User feedback is a singleton resource on a Question.
@@ -647,6 +655,7 @@ class QuestionServiceClient(metaclass=QuestionServiceClientMeta):
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
+
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -673,8 +682,10 @@ class QuestionServiceClient(metaclass=QuestionServiceClientMeta):
         # there are no flattened fields.
         if not isinstance(request, question_service.GetUserFeedbackRequest):
             request = question_service.GetUserFeedbackRequest(request)
+
             # If we have keyword arguments corresponding to fields on the
             # request, apply these.
+
             if name is not None:
                 request.name = name
 
@@ -709,8 +720,7 @@ class QuestionServiceClient(metaclass=QuestionServiceClientMeta):
 
         Args:
             request (google.cloud.dataqna_v1alpha.types.UpdateUserFeedbackRequest):
-                The request object.
-                Request to updates user feedback.
+                The request object. Request to updates user feedback.
             user_feedback (google.cloud.dataqna_v1alpha.types.UserFeedback):
                 Required. The user feedback to
                 update. This can be called even if there
@@ -727,6 +737,7 @@ class QuestionServiceClient(metaclass=QuestionServiceClientMeta):
                 This corresponds to the ``update_mask`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
+
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -753,8 +764,10 @@ class QuestionServiceClient(metaclass=QuestionServiceClientMeta):
         # there are no flattened fields.
         if not isinstance(request, question_service.UpdateUserFeedbackRequest):
             request = question_service.UpdateUserFeedbackRequest(request)
+
             # If we have keyword arguments corresponding to fields on the
             # request, apply these.
+
             if user_feedback is not None:
                 request.user_feedback = user_feedback
             if update_mask is not None:
