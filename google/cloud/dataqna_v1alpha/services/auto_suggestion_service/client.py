@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-
 # Copyright 2020 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,7 +13,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-
 from collections import OrderedDict
 from distutils import util
 import os
@@ -23,17 +21,16 @@ from typing import Callable, Dict, Optional, Sequence, Tuple, Type, Union
 import pkg_resources
 
 from google.api_core import client_options as client_options_lib  # type: ignore
-from google.api_core import exceptions  # type: ignore
+from google.api_core import exceptions as core_exceptions  # type: ignore
 from google.api_core import gapic_v1  # type: ignore
 from google.api_core import retry as retries  # type: ignore
-from google.auth import credentials  # type: ignore
+from google.auth import credentials as ga_credentials  # type: ignore
 from google.auth.transport import mtls  # type: ignore
 from google.auth.transport.grpc import SslCredentials  # type: ignore
 from google.auth.exceptions import MutualTLSChannelError  # type: ignore
 from google.oauth2 import service_account  # type: ignore
 
 from google.cloud.dataqna_v1alpha.types import auto_suggestion_service
-
 from .transports.base import AutoSuggestionServiceTransport, DEFAULT_CLIENT_INFO
 from .transports.grpc import AutoSuggestionServiceGrpcTransport
 from .transports.grpc_asyncio import AutoSuggestionServiceGrpcAsyncIOTransport
@@ -289,7 +286,7 @@ class AutoSuggestionServiceClient(metaclass=AutoSuggestionServiceClientMeta):
     def __init__(
         self,
         *,
-        credentials: Optional[credentials.Credentials] = None,
+        credentials: Optional[ga_credentials.Credentials] = None,
         transport: Union[str, AutoSuggestionServiceTransport, None] = None,
         client_options: Optional[client_options_lib.ClientOptions] = None,
         client_info: gapic_v1.client_info.ClientInfo = DEFAULT_CLIENT_INFO,
@@ -413,7 +410,6 @@ class AutoSuggestionServiceClient(metaclass=AutoSuggestionServiceClientMeta):
         Args:
             request (google.cloud.dataqna_v1alpha.types.SuggestQueriesRequest):
                 The request object. Request for query suggestions.
-
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -425,7 +421,6 @@ class AutoSuggestionServiceClient(metaclass=AutoSuggestionServiceClientMeta):
                 Response to SuggestQueries.
         """
         # Create or coerce a protobuf request object.
-
         # Minor optimization to avoid making a copy if the user passes
         # in a auto_suggestion_service.SuggestQueriesRequest.
         # There's no risk of modifying the input as we've already verified
