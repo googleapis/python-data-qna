@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.2.2](https://www.github.com/googleapis/python-data-qna/compare/v0.2.1...v0.2.2) (2021-06-19)
+
+
+### Documentation
+
+* omit mention of Python 2.7 in 'CONTRIBUTING.rst' ([#1127](https://www.github.com/googleapis/python-data-qna/issues/1127)) ([#54](https://www.github.com/googleapis/python-data-qna/issues/54)) ([2eb4cfb](https://www.github.com/googleapis/python-data-qna/commit/2eb4cfb449856ea2e40b2202cbba766c14ade9ce))
+
 ### [0.2.1](https://www.github.com/googleapis/python-data-qna/compare/v0.2.0...v0.2.1) (2021-06-16)
 
 
