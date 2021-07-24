@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.4.0](https://www.github.com/googleapis/python-data-qna/compare/v0.3.1...v0.4.0) (2021-07-24)
+
+
+### Features
+
+* add Samples section to CONTRIBUTING.rst ([#67](https://www.github.com/googleapis/python-data-qna/issues/67)) ([543ad2a](https://www.github.com/googleapis/python-data-qna/commit/543ad2ab0057d710f4e9c1a5b4f08b4985422316))
+
+
+### Bug Fixes
+
+* enable self signed jwt for grpc ([#71](https://www.github.com/googleapis/python-data-qna/issues/71)) ([9d23b1a](https://www.github.com/googleapis/python-data-qna/commit/9d23b1a914a86572151116a0eb0571189e37e925))
+
 ### [0.3.1](https://www.github.com/googleapis/python-data-qna/compare/v0.3.0...v0.3.1) (2021-07-20)
 
 
