@@ -11,5 +11,5 @@
     "distribution_name": "google-cloud-data-qna",
     "api_id": "dataqna.googleapis.com",
     "codeowner_team": "@googleapis/api-bigquery",
-    "default_version": ""
+    "default_version": "v1alpha"
 }
