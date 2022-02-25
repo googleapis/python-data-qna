@@ -449,8 +449,7 @@ class QuestionServiceClient(metaclass=QuestionServiceClientMeta):
     ) -> question.Question:
         r"""Gets a previously created question.
 
-
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import dataqna_v1alpha
 
@@ -544,8 +543,7 @@ class QuestionServiceClient(metaclass=QuestionServiceClientMeta):
     ) -> gcd_question.Question:
         r"""Creates a question.
 
-
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import dataqna_v1alpha
 
@@ -652,8 +650,7 @@ class QuestionServiceClient(metaclass=QuestionServiceClientMeta):
     ) -> question.Question:
         r"""Executes an interpretation.
 
-
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import dataqna_v1alpha
 
@@ -756,8 +753,7 @@ class QuestionServiceClient(metaclass=QuestionServiceClientMeta):
     ) -> user_feedback.UserFeedback:
         r"""Gets previously created user feedback.
 
-
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import dataqna_v1alpha
 
@@ -849,8 +845,7 @@ class QuestionServiceClient(metaclass=QuestionServiceClientMeta):
         there was none before (upsert).
 
 
-
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import dataqna_v1alpha
 

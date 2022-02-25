@@ -285,7 +285,7 @@ class AutoSuggestionServiceAsyncClient:
         AutoSuggestion tolerance should be less than 1 second.
 
 
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import dataqna_v1alpha
 
