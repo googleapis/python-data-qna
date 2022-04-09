@@ -16,7 +16,7 @@
 from collections import OrderedDict
 import os
 import re
-from typing import Dict, Optional, Sequence, Tuple, Type, Union
+from typing import Dict, Mapping, Optional, Sequence, Tuple, Type, Union
 import pkg_resources
 
 from google.api_core import client_options as client_options_lib
@@ -484,7 +484,7 @@ class QuestionServiceClient(metaclass=QuestionServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import dataqna_v1alpha
+                    from google.cloud import dataqna_v1alpha
 
             def sample_get_question():
                 # Create a client
@@ -583,7 +583,7 @@ class QuestionServiceClient(metaclass=QuestionServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import dataqna_v1alpha
+                    from google.cloud import dataqna_v1alpha
 
             def sample_create_question():
                 # Create a client
@@ -695,7 +695,7 @@ class QuestionServiceClient(metaclass=QuestionServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import dataqna_v1alpha
+                    from google.cloud import dataqna_v1alpha
 
             def sample_execute_question():
                 # Create a client
@@ -803,7 +803,7 @@ class QuestionServiceClient(metaclass=QuestionServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import dataqna_v1alpha
+                    from google.cloud import dataqna_v1alpha
 
             def sample_get_user_feedback():
                 # Create a client
@@ -900,7 +900,7 @@ class QuestionServiceClient(metaclass=QuestionServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import dataqna_v1alpha
+                    from google.cloud import dataqna_v1alpha
 
             def sample_update_user_feedback():
                 # Create a client
