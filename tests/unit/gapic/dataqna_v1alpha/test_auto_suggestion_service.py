@@ -1068,7 +1068,6 @@ def test_auto_suggestion_service_transport_auth_adc(transport_class):
     [
         transports.AutoSuggestionServiceGrpcTransport,
         transports.AutoSuggestionServiceGrpcAsyncIOTransport,
-        transports.AutoSuggestionServiceRestTransport,
     ],
 )
 def test_auto_suggestion_service_transport_auth_gdch_credentials(transport_class):
