@@ -3,7 +3,7 @@ Python Client for Data QnA API
 
 |preview| |pypi| |versions|
 
-`Data QnA API`_: 
+`Data QnA API`_: Data QnA is a natural language question and answer service for BigQuery data.
 
 - `Client Library Documentation`_
 - `Product Documentation`_
