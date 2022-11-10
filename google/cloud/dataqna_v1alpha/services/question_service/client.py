@@ -16,7 +16,18 @@
 from collections import OrderedDict
 import os
 import re
-from typing import Dict, Mapping, Optional, Sequence, Tuple, Type, Union, cast
+from typing import (
+    Dict,
+    Mapping,
+    MutableMapping,
+    MutableSequence,
+    Optional,
+    Sequence,
+    Tuple,
+    Type,
+    Union,
+    cast,
+)
 
 from google.api_core import client_options as client_options_lib
 from google.api_core import exceptions as core_exceptions
@@ -67,7 +78,7 @@ class QuestionServiceClientMeta(type):
 
     def get_transport_class(
         cls,
-        label: str = None,
+        label: Optional[str] = None,
     ) -> Type[QuestionServiceTransport]:
         """Returns an appropriate transport class.
 
@@ -381,7 +392,7 @@ class QuestionServiceClient(metaclass=QuestionServiceClientMeta):
         self,
         *,
         credentials: Optional[ga_credentials.Credentials] = None,
-        transport: Union[str, QuestionServiceTransport, None] = None,
+        transport: Optional[Union[str, QuestionServiceTransport]] = None,
         client_options: Optional[Union[client_options_lib.ClientOptions, dict]] = None,
         client_info: gapic_v1.client_info.ClientInfo = DEFAULT_CLIENT_INFO,
     ) -> None:
@@ -482,11 +493,11 @@ class QuestionServiceClient(metaclass=QuestionServiceClientMeta):
 
     def get_question(
         self,
-        request: Union[question_service.GetQuestionRequest, dict] = None,
+        request: Optional[Union[question_service.GetQuestionRequest, dict]] = None,
         *,
-        name: str = None,
+        name: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> question.Question:
         r"""Gets a previously created question.
@@ -587,12 +598,12 @@ class QuestionServiceClient(metaclass=QuestionServiceClientMeta):
 
     def create_question(
         self,
-        request: Union[question_service.CreateQuestionRequest, dict] = None,
+        request: Optional[Union[question_service.CreateQuestionRequest, dict]] = None,
         *,
-        parent: str = None,
-        question: gcd_question.Question = None,
+        parent: Optional[str] = None,
+        question: Optional[gcd_question.Question] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> gcd_question.Question:
         r"""Creates a question.
@@ -706,12 +717,12 @@ class QuestionServiceClient(metaclass=QuestionServiceClientMeta):
 
     def execute_question(
         self,
-        request: Union[question_service.ExecuteQuestionRequest, dict] = None,
+        request: Optional[Union[question_service.ExecuteQuestionRequest, dict]] = None,
         *,
-        name: str = None,
-        interpretation_index: int = None,
+        name: Optional[str] = None,
+        interpretation_index: Optional[int] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> question.Question:
         r"""Executes an interpretation.
@@ -822,11 +833,11 @@ class QuestionServiceClient(metaclass=QuestionServiceClientMeta):
 
     def get_user_feedback(
         self,
-        request: Union[question_service.GetUserFeedbackRequest, dict] = None,
+        request: Optional[Union[question_service.GetUserFeedbackRequest, dict]] = None,
         *,
-        name: str = None,
+        name: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> user_feedback.UserFeedback:
         r"""Gets previously created user feedback.
@@ -923,12 +934,14 @@ class QuestionServiceClient(metaclass=QuestionServiceClientMeta):
 
     def update_user_feedback(
         self,
-        request: Union[question_service.UpdateUserFeedbackRequest, dict] = None,
+        request: Optional[
+            Union[question_service.UpdateUserFeedbackRequest, dict]
+        ] = None,
         *,
-        user_feedback: gcd_user_feedback.UserFeedback = None,
-        update_mask: field_mask_pb2.FieldMask = None,
+        user_feedback: Optional[gcd_user_feedback.UserFeedback] = None,
+        update_mask: Optional[field_mask_pb2.FieldMask] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> gcd_user_feedback.UserFeedback:
         r"""Updates user feedback. This creates user feedback if
