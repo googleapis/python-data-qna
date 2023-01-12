@@ -59,6 +59,7 @@ from google.cloud.dataqna_v1alpha.types import user_feedback
 from .transports.base import DEFAULT_CLIENT_INFO, QuestionServiceTransport
 from .transports.grpc import QuestionServiceGrpcTransport
 from .transports.grpc_asyncio import QuestionServiceGrpcAsyncIOTransport
+from .transports.rest import QuestionServiceRestTransport
 
 
 class QuestionServiceClientMeta(type):
@@ -74,6 +75,7 @@ class QuestionServiceClientMeta(type):
     )  # type: Dict[str, Type[QuestionServiceTransport]]
     _transport_registry["grpc"] = QuestionServiceGrpcTransport
     _transport_registry["grpc_asyncio"] = QuestionServiceGrpcAsyncIOTransport
+    _transport_registry["rest"] = QuestionServiceRestTransport
 
     def get_transport_class(
         cls,
@@ -406,6 +408,9 @@ class QuestionServiceClient(metaclass=QuestionServiceClientMeta):
             transport (Union[str, QuestionServiceTransport]): The
                 transport to use. If set to None, a transport is chosen
                 automatically.
+                NOTE: "rest" transport functionality is currently in a
+                beta state (preview). We welcome your feedback via an
+                issue in this library's source repository.
             client_options (Optional[Union[google.api_core.client_options.ClientOptions, dict]]): Custom options for the
                 client. It won't take effect if a ``transport`` instance is provided.
                 (1) The ``api_endpoint`` property can be used to override the
