@@ -26,16 +26,6 @@
               ]
             }
           }
-        },
-        "rest": {
-          "libraryClient": "AutoSuggestionServiceClient",
-          "rpcs": {
-            "SuggestQueries": {
-              "methods": [
-                "suggest_queries"
-              ]
-            }
-          }
         }
       }
     },
@@ -73,36 +63,6 @@
         },
         "grpc-async": {
           "libraryClient": "QuestionServiceAsyncClient",
-          "rpcs": {
-            "CreateQuestion": {
-              "methods": [
-                "create_question"
-              ]
-            },
-            "ExecuteQuestion": {
-              "methods": [
-                "execute_question"
-              ]
-            },
-            "GetQuestion": {
-              "methods": [
-                "get_question"
-              ]
-            },
-            "GetUserFeedback": {
-              "methods": [
-                "get_user_feedback"
-              ]
-            },
-            "UpdateUserFeedback": {
-              "methods": [
-                "update_user_feedback"
-              ]
-            }
-          }
-        },
-        "rest": {
-          "libraryClient": "QuestionServiceClient",
           "rpcs": {
             "CreateQuestion": {
               "methods": [
