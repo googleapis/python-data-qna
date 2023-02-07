@@ -19,10 +19,6 @@ from typing import Dict, Type
 from .base import AutoSuggestionServiceTransport
 from .grpc import AutoSuggestionServiceGrpcTransport
 from .grpc_asyncio import AutoSuggestionServiceGrpcAsyncIOTransport
-from .rest import (
-    AutoSuggestionServiceRestInterceptor,
-    AutoSuggestionServiceRestTransport,
-)
 
 # Compile a registry of transports.
 _transport_registry = (
@@ -30,12 +26,9 @@ _transport_registry = (
 )  # type: Dict[str, Type[AutoSuggestionServiceTransport]]
 _transport_registry["grpc"] = AutoSuggestionServiceGrpcTransport
 _transport_registry["grpc_asyncio"] = AutoSuggestionServiceGrpcAsyncIOTransport
-_transport_registry["rest"] = AutoSuggestionServiceRestTransport
 
 __all__ = (
     "AutoSuggestionServiceTransport",
     "AutoSuggestionServiceGrpcTransport",
     "AutoSuggestionServiceGrpcAsyncIOTransport",
-    "AutoSuggestionServiceRestTransport",
-    "AutoSuggestionServiceRestInterceptor",
 )
